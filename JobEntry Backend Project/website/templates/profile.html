@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h4 class="mb-4 text-primary">Your Profile Picture</h4>
+                    <form method="post" action="{{ url_for('auth.upload_profile_picture') }}" enctype="multipart/form-data">
+                        <input type="file" name="profile_picture" accept="image/*" class="form-control mb-3">
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+                    <div class="mt-4">
+                        {% set user_profile_picture = get_user_profile_picture(session['username']) %}
+                        {% if user_profile_picture %}
+                            <img src="{{ url_for('static', filename='uploads/' + user_profile_picture) }}" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 200px;">
+                        {% else %}
+                            <p>No profile picture uploaded yet.</p>
+                        {% endif %}
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="mb-4 text-primary">Your Advertisements</h4>
+                    <div class="accordion" id="adAccordion">
+                        {% for ad in user_ads %}
+                            <div class="accordion-item mb-3">
+                                <h2 class="accordion-header" id="adHeading{{ ad.id }}">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#adCollapse{{ ad.id }}" aria-expanded="true" aria-controls="adCollapse{{ ad.id }}">{{ ad.title }}</button>
+                                </h2>
+                                <div id="adCollapse{{ ad.id }}" class="accordion-collapse collapse" aria-labelledby="adHeading{{ ad.id }}">
+                                    <div class="accordion-body">
+                                        <p>{{ ad.content }}</p>
+                                        <small><strong>Created on: </strong>{{ ad.created_date }}</small>
+                                        <div class="mt-3 d-flex justify-content-end">
+                                            <!-- Edit Advertisement -->
+                                            <a href="{{ url_for('auth.edit_ad', ad_id=ad.id) }}" class="btn btn-primary me-2">Edit</a>
+                                            
+                                            <!-- Delete Advertisement -->
+                                            <form method="post" action="{{ url_for('auth.delete_ad', ad_id=ad.id) }}" style="display: inline;">
+                                                <input type="submit" value="Delete" class="btn btn-danger">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+

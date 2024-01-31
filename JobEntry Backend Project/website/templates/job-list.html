@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}Job List{% endblock title %}
+
+{% block body %}
+
+<!-- Header Start -->
+<div class="container-xxl py-5 bg-dark page-header mb-5">
+    <div class="container my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Job List</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb text-uppercase">
+                <li class="breadcrumb-item"><a href="{{ url_for('views.home') }}">Home</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Job List</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Header End -->
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job List</h1>
+
+        <div class="row">
+            {% for job in jobs.items %}
+            <div class="col-md-6 mb-4">
+                <div class="card job-card">
+                    <div class="card-body">
+                        <div class="company-info">
+                            <!-- Profile picture of the user who created the ad -->
+                            <img src="{{ url_for('static', filename='uploads/' + get_user_profile_picture(job.author)) }}" class="img-fluid rounded-circle company-logo" alt="Company Logo">
+                            <!-- Advertisement Detail -->
+                            <div class="details">
+                                <h5 class="card-title mb-1">{{ job.title }}</h5>
+                                <p class="card-text">
+                                    <i class="fas fa-map-marker-alt me-2"></i> {{ job.location }}<br>
+                                    <i class="far fa-clock me-2"></i> {{ job.employment_type }}<br>
+                                    <i class="far fa-money-bill-alt me-2"></i> {{ job.salary_range }}
+                                </p>
+                                <p class="card-text"><small class="text-muted">Created Time: {{ job.created_date }}</small></p>
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <a class="btn btn-outline-primary btn-sm" href="{{ url_for('views.job_detail', job_id=job.id) }}">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Paging links -->
+        <div class="pagination justify-content-center mt-4">
+            {% if jobs.has_prev %}
+                <a class="page-link" href="{{ url_for('views.joblist', page=jobs.prev_num) }}">Previous</a>
+            {% else %}
+                <span class="page-link disabled">Previous</span>
+            {% endif %}
+            
+            {% for page_num in jobs.iter_pages() %}
+                {% if page_num %}
+                    {% if jobs.page == page_num %}
+                        <strong><span class="current page-link">{{ page_num }}</span></strong>
+                    {% else %}
+                        <a class="page-link" href="{{ url_for('views.joblist', page=page_num) }}">{{ page_num }}</a>
+                    {% endif %}
+                {% else %}
+                    <span class="ellipsis">...</span>
+                {% endif %}
+            {% endfor %}
+            
+            {% if jobs.has_next %}
+                <a class="page-link" href="{{ url_for('views.joblist', page=jobs.next_num) }}">Next</a>
+            {% else %}
+                <span class="page-link disabled">Next</span>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+
+

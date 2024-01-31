@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Category{% endblock title %}
+
+{% block body %}
+
+ <!-- Header End -->
+ <div class="container-xxl py-5 bg-dark page-header mb-5">
+    <div class="container my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Category</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb text-uppercase">
+                <li class="breadcrumb-item"><a href="{{ url_for('views.home') }}">Home</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Category</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Header End -->
+
+
+<!-- Category Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Explore By Category</h1>
+        <div class="row g-4">
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Marketing') }}">
+                    <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i>
+                    <h6 class="mb-3">Marketing</h6>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Service') }}">
+                    <i class="fa fa-3x fa-headset text-primary mb-4"></i>
+                    <h6 class="mb-3">Service</h6>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Resource') }}">
+                    <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                    <h6 class="mb-3">Resource</h6>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Management') }}">
+                    <i class="fa fa-3x fa-tasks text-primary mb-4"></i>
+                    <h6 class="mb-3">Management</h6>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Development') }}">
+                    <i class="fa fa-3x fa-chart-line text-primary mb-4"></i>
+                    <h6 class="mb-3">Development</h6>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Communication') }}">
+                    <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
+                    <h6 class="mb-3">Communication</h6>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Education') }}">
+                    <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
+                    <h6 class="mb-3">Education</h6>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Design') }}">
+                    <i class="fa fa-3x fa-drafting-compass text-primary mb-4"></i>
+                    <h6 class="mb-3">Design</h6>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Category End -->
+
+{% endblock body %}
+    

@@ -1,0 +1,57 @@
+{% with messages = get_flashed_messages(with_categories=true) %} {% if messages
+%}
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      {% for _, message in messages %}
+      <div class="alert alert-dismissible fade show custom-alert" role="alert">
+        <button type="button" class="btn-close" aria-label="Close"></button>
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .custom-alert {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    transition: opacity 0.5s ease;
+    position: relative;
+  }
+
+  .custom-alert .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem 1.25rem;
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .custom-alert .btn-close:hover {
+    color: #000; 
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var alertCloseButtons = document.querySelectorAll(
+      ".custom-alert .btn-close"
+    );
+    alertCloseButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var alert = this.closest(".custom-alert");
+        alert.style.opacity = 0;
+        setTimeout(function () {
+          alert.style.display = "none";
+        }, 500);
+      });
+    });
+  });
+</script>
+{% endif %} {% endwith %}

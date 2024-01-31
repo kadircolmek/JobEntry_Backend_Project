@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Advertisement{% endblock title %}
+
+{% block body %}
+<br>
+<h3>Create an Advertisement</h3>   
+<hr>
+
+{% from 'includes/formhelpers.html' import render_field %}
+
+<form method="post">
+    {{ form.hidden_tag() }} 
+    <label for="title"></label>
+    {{ render_field(form.title) }}
+    <br>
+    <label for="content"></label>
+    {{ render_field(form.content) }}
+    <br>
+    <label for="location"></label>
+    {{ render_field(form.location) }}
+    <br>
+    <label for="employment_type"></label>
+    {{ render_field(form.employment_type) }}
+    <br>
+    <label for="category"></label>
+    {{ render_field(form.category) }}
+    <br>
+    <label for="salary_range"></label>
+    {{ render_field(form.salary_range) }}
+    <br>
+    <label for="job_description"></label>
+    {{ render_field(form.job_description) }}
+    <br>
+    <label for="responsibilities"></label>
+    {{ render_field(form.responsibilities) }}
+    <br>
+    <label for="qualifications"></label>
+    {{ render_field(form.qualifications) }}
+    <br>
+    <label for="author"></label>
+    {{ render_field(form.author) }}
+    <br>
+    <button type="submit" class="btn btn-danger">Add a Job Advertisement</button>
+    <br>
+</form>
+<br>
+
+{% endblock body %}

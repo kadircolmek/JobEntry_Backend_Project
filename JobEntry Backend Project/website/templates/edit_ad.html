@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Advertisement{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card shadow-lg" style="background-color: #ffffff; border-radius: 15px; border: 2px solid #26bc89;">
+                    <div class="card-body">
+                        <h1 class="card-title mb-4" style="color: #26bc89;">Edit Advertisement</h1>
+                        <form method="POST" action="{{ url_for('auth.edit_ad', ad_id=ad.id) }}">
+                            <div class="form-group">
+                                <label for="title" style="color: #26bc89;">Advertisement Title:</label>
+                                <input type="text" id="title" name="title" class="form-control" value="{{ ad.title }}" required>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="content" style="color: #26bc89;">Advertisement Content:</label>
+                                <textarea id="content" name="content" class="form-control" required>{{ ad.content }}</textarea>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="location" style="color: #26bc89;">Location:</label>
+                                <textarea id="location" name="location" class="form-control" required>{{ ad.location }}</textarea>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="employment_type" style="color: #26bc89;">Employment Type:</label>
+                                <textarea id="employment_type" name="employment_type" class="form-control" required>{{ ad.employment_type }}</textarea>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="category" style="color: #26bc89;">Category:</label>
+                                <textarea id="category" name="category" class="form-control" required>{{ ad.category }}</textarea>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="salary_range" style="color: #26bc89;">Salary Range:</label>
+                                <textarea id="salary_range" name="salary_range" class="form-control" required>{{ ad.salary_range }}</textarea>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="job_description" style="color: #26bc89;">Job Description:</label>
+                                <textarea id="job_description" name="job_description" class="form-control" required>{{ ad.job_description }}</textarea>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="responsibilities" style="color: #26bc89;">Responsibilities:</label>
+                                <textarea id="responsibilities" name="responsibilities" class="form-control" required>{{ ad.responsibilities }}</textarea>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="qualifications" style="color: #26bc89;">Qualifications:</label>
+                                <textarea id="qualifications" name="qualifications" class="form-control" required>{{ ad.qualifications }}</textarea>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="author" style="color: #26bc89;">Author:</label>
+                                <textarea id="author" name="author" class="form-control" required>{{ ad.author }}</textarea>
+                            </div><br>
+                            <button type="submit" class="btn btn-primary" style="background-color: #26bc89;">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+{% endblock %}

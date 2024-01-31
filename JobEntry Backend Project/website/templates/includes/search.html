@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-GLhlTQ8i6Ique7Tqp1GDtL/09QI5KO0Qj1F3VJpiqL2L3gp5R02jWb5qQlmh/j" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy8RAeVRgGxhR6pVIiSQQgF2HAshF5n3Au" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20vh;
+        }
+
+        .search-form {
+            max-width: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-container">
+    <div class="search-form">
+        <form class="row g-3 align-items-center" method="POST" action="{{ url_for('views.search_results') }}">
+            <div class="col-md-9">
+                <input type="text" class="form-control form-control-lg" name="search_query" placeholder="">
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary btn-lg rounded-pill w-100">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </form>        
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-eMNCOJt6aaZldjwzhRaG0L8GLqIhJKJ2y3rXkfVZkMm1o3zW7jzI86FNP5pn0qq" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy8RAeVRgGxhR6pVIiSQQgF2HAshF5n3Au" crossorigin="anonymous"></script>
+
+</body>
+</html>

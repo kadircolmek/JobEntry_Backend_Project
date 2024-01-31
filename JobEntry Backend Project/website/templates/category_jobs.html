@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ category_name }}{% endblock title %}
+
+{% block body %}
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Jobs in {{ category_name }}</h1>
+
+        <div class="row">
+            {% if jobs %}
+                {% for job in jobs %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card job-card">
+                            <div class="card-body">
+                                <div class="company-info">
+                                    <!-- Profile picture of the user who created the ad -->
+                                    <img src="{{ url_for('static', filename='uploads/' + get_user_profile_picture(job.author)) }}" class="img-fluid rounded-circle company-logo" alt="Company Logo">
+                                    <!-- Advertisement Detail -->
+                                    <div class="details">
+                                        <h5 class="card-title mb-1">{{ job.title }}</h5>
+                                        <p class="card-text">
+                                            <i class="fas fa-map-marker-alt me-2"></i> {{ job.location }}<br>
+                                            <i class="far fa-clock me-2"></i> {{ job.employment_type }}<br>
+                                            <i class="far fa-money-bill-alt me-2"></i> {{ job.salary_range }}
+                                        </p>
+                                        <p class="card-text"><small class="text-muted">Created Time: {{ job.created_date }}</small></p>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <a class="btn btn-outline-primary btn-sm" href="{{ url_for('views.job_detail', job_id=job.id) }}">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-md-12">
+                    <div class="alert alert-info" role="alert">
+                        There are currently no job listings in the "{{ category_name }}" category. Check back later!
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{{ url_for('views.joblist') }}" class="btn btn-primary">See More Jobs</a>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

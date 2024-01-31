@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Home{% endblock title %}
+
+
+{% block body %}
+    
+    
+        <!-- Carousel Start -->
+        <div class="container-fluid p-0">
+            <div class="owl-carousel header-carousel position-relative">
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="{{ url_for('static', filename='img/carousel-1.jpg') }}" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(43, 57, 64, .5);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-3 text-white animated slideInDown mb-4">Find The Perfect Job That You Deserved</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                                    <a href="{{url_for('views.joblist')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Find A Job</a>
+                                    <a href="{{url_for ('views.category')}}" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Category</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="{{ url_for('static', filename='img/carousel-2.jpg') }}" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(43, 57, 64, .5);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-3 text-white animated slideInDown mb-4">Find The Best Startup Job That Fit You</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                                    <a href="{{url_for('views.joblist')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Find A Job</a>
+                                    <a href="{{url_for ('views.category')}}" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Category</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+        <br>
+        {% include 'includes/search.html' %}
+
+
+        <!-- Category Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Explore By Category</h1>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Marketing') }}">
+                            <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i>
+                            <h6 class="mb-3">Marketing</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Service') }}">
+                            <i class="fa fa-3x fa-headset text-primary mb-4"></i>
+                            <h6 class="mb-3">Service</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Resource') }}">
+                            <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                            <h6 class="mb-3">Resource</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Management') }}">
+                            <i class="fa fa-3x fa-tasks text-primary mb-4"></i>
+                            <h6 class="mb-3">Management</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Development') }}">
+                            <i class="fa fa-3x fa-chart-line text-primary mb-4"></i>
+                            <h6 class="mb-3">Development</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Communication') }}">
+                            <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
+                            <h6 class="mb-3">Communication</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Education') }}">
+                            <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
+                            <h6 class="mb-3">Education</h6>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <a class="cat-item rounded p-4" href="{{ url_for('views.category_jobs', category_name='Design') }}">
+                            <i class="fa fa-3x fa-drafting-compass text-primary mb-4"></i>
+                            <h6 class="mb-3">Design</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category End -->
+
+
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="row g-0 about-bg rounded overflow-hidden">
+                            <div class="col-6 text-start">
+                                <img class="img-fluid w-100" src="{{ url_for('static', filename='img/about-1.jpg') }}">
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid" src="{{ url_for('static', filename='img/about-2.jpg') }}" style="width: 85%; margin-top: 15%;">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid" src="{{ url_for('static', filename='img/about-3.jpg') }}" style="width: 85%;">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid w-100" src="{{ url_for('static', filename='img/about-4.jpg') }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
+                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
+                        <a class="btn btn-primary py-3 px-5 mt-3" href="{{url_for('views.about')}}">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+        
+        <!-- Job Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1>
+
+                <div class="row">
+                    {% for job in last_four_jobs %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card job-card">
+                            <div class="card-body">
+                                <div class="company-info">
+                                    <!-- Profile picture of the user who created the ad -->
+                                    <img src="{{ url_for('static', filename='uploads/' + get_user_profile_picture(job.author)) }}" class="img-fluid rounded-circle company-logo" alt="Company Logo">
+                                    <!-- Advertisement Detail -->
+                                    <div class="details">
+                                        <h5 class="card-title mb-1">{{ job.title }}</h5>
+                                        <p class="card-text">
+                                            <i class="fas fa-map-marker-alt me-2"></i> {{ job.location }}<br>
+                                            <i class="far fa-clock me-2"></i> {{ job.employment_type }}<br>
+                                            <i class="far fa-money-bill-alt me-2"></i> {{ job.salary_range }}
+                                        </p>
+                                        <p class="card-text"><small class="text-muted">Created Time: {{ job.created_date }}</small></p>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <a class="btn btn-outline-primary btn-sm" href="{{ url_for('views.job_detail', job_id=job.id) }}">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="text-center mt-4">
+                    <a href="{{ url_for('views.joblist') }}" class="btn btn-primary">See More Jobs</a>
+                </div>
+            </div>
+        </div>
+        <!-- Job End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container">
+                <!-- Part to show comments Start -->
+                <h1 class="text-center mb-5">Our Clients Say!!!</h1>
+                <div class="owl-carousel testimonial-carousel">
+                    {% for testimonial in testimonials %}
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>{{ testimonial.comment }}</p>
+                        <div class="d-flex align-items-center">
+                            <div class="ps-3">
+                                <h5 class="mb-1">{{ testimonial.client_name }}</h5>
+                                <small>{{ testimonial.profession }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- Part to show comments End -->
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+
+        {% endblock body %}
